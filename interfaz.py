@@ -5,7 +5,7 @@ from chatbot import responder
 class ChatbotApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("🍽️ Chatbot Nutricional")
+        self.root.title("🍽️ Chatbot Comida Rapida")
         self.root.geometry("700x600")
         self.root.configure(bg="#fffef5")  # Fondo suave
 
@@ -21,7 +21,7 @@ class ChatbotApp:
         self.style.map("Option.TButton",
                        background=[("active", "#ffe8a1")])
 
-        self.label_title = ttk.Label(self.root, text="Asistente Nutricional 🤖", font=("Segoe UI", 20, "bold"), background="#fffef5")
+        self.label_title = ttk.Label(self.root, text="Asistente Comida Rapida 🤖", font=("Segoe UI", 20, "bold"), background="#fffef5")
         self.label_title.pack(pady=10)
 
         self.chat_area = scrolledtext.ScrolledText(
@@ -44,9 +44,9 @@ class ChatbotApp:
         self.opciones_frame = tk.Frame(self.root, bg="#fffef5")
         self.opciones_frame.pack(padx=20, pady=(0, 10), fill=tk.X)
 
-        self.mostrar_opciones(["Desayuno", "Almuerzo", "Cena", "Snack Saludable"])
+        self.mostrar_opciones(["Comida Rapida", "Recomendaciones", "Comida saludable", "Snack Saludable"])
 
-        self.agregar_texto("¡Hola! Soy tu asistente de comidas. ¿Qué deseas comer hoy? 🥗🍝", es_bot=True)
+        self.agregar_texto("¡Hola! Soy tu asistente de comidas rápidas 🍟. Te ayudaré a elegir opciones deliciosas, económicas y al instante. ¿Qué deseas hoy?", es_bot=True)
 
     def agregar_texto(self, mensaje, es_bot=False):
         self.chat_area['state'] = 'normal'
@@ -68,7 +68,7 @@ class ChatbotApp:
 
         respuesta = responder(user_input)
         self.agregar_texto(respuesta, es_bot=True)
-        self.mostrar_opciones(["Ver receta", "Otra opción", "Recomendar postre"])
+        self.mostrar_opciones(["Presupuesto bajo ", "Vegetariano", "Receta"])
 
     def mostrar_opciones(self, opciones):
         for widget in self.opciones_frame.winfo_children():
